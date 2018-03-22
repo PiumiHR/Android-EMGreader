@@ -1,13 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-
+<RelativeLayout android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 <LinearLayout
-xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:app="http://schemas.android.com/apk/res-auto"
-android:layout_width="fill_parent"
-android:layout_height="fill_parent"
+    android:layout_height="55dp"
+    android:layout_width="match_parent"
+    android:id="@+id/relativeone"
+    tools:context=".MainActivity">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/mytoolbar"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/HeaderBar"
+
+        />
+</LinearLayout>
+
+<RelativeLayout
+android:layout_width="match_parent"
+android:layout_height="match_parent"
     android:gravity="center"
+android:layout_below="@+id/relativeone"
     android:background="@color/colorBackground"
  >
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Get Start!"
+        android:gravity="center"
+        android:textSize="50dp"
+        android:id="@id/tvstart"
+        />
 
 
     <at.markushi.ui.CircleButton
@@ -17,7 +44,13 @@ android:layout_height="fill_parent"
         app:cb_color="@color/secondcirclecolor"
         app:cb_pressedRingWidth="10dip"
         android:layout_centerHorizontal="true"
+        android:src="@drawable/start"
+        android:layout_below="@+id/tvstart"
+        android:layout_marginTop="30dp"
+
+
 
 />
 
-</LinearLayout>
+</RelativeLayout>
+</RelativeLayout>
