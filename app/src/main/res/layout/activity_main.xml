@@ -1,17 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<LinearLayout
+xmlns:android="http://schemas.android.com/apk/res/android"
 xmlns:app="http://schemas.android.com/apk/res-auto"
-xmlns:tools="http://schemas.android.com/tools"
-android:layout_width="match_parent"
-android:layout_height="match_parent"
-tools:context="com.example.asankad7.eeg.MainActivity">
+android:layout_width="fill_parent"
+android:layout_height="fill_parent"
+    android:gravity="center"
+    android:background="@color/colorBackground"
+ >
 
 
-    <Button
-        android:id="@+id/buttonStart"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Start"
-        style="@style/AppTheme.RoundedCornerMaterialButton"/>
+    <at.markushi.ui.CircleButton
+        android:id="@+id/bStartone"
+        android:layout_width="200dip"
+        android:layout_height="200dip"
+        app:cb_color="@color/secondcirclecolor"
+        app:cb_pressedRingWidth="10dip"
+        android:layout_centerHorizontal="true"
 
-</RelativeLayout>
+/>
+
+</LinearLayout>

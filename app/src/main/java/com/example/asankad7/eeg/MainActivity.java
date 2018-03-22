@@ -4,24 +4,30 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
+
+import at.markushi.ui.CircleButton;
 
 public class MainActivity extends Activity {
 
-    Button bStart;
+CircleButton bStartone;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        bStart = findViewById(R.id.buttonStart);
-        bStart.setOnClickListener(new View.OnClickListener() {
+        bStartone = (CircleButton) findViewById(R.id.bStartone);
+//btnSubmit = (SubmitButton) findViewById(R.id.bStartone);
+        bStartone.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this,Graph.class);
                 startActivity(intent);
             }
         });
+
+
     }
+
 
 }

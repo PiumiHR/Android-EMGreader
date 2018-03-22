@@ -1,6 +1,11 @@
 package com.example.asankad7.eeg.activities;
 
+import android.Manifest;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.Environment;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
 import android.support.design.widget.TextInputEditText;
@@ -10,11 +15,16 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.AppCompatButton;
 import android.support.v7.widget.AppCompatTextView;
 import android.view.View;
+import android.widget.Toast;
 
 import com.example.asankad7.eeg.R;
 import com.example.asankad7.eeg.helpers.InputValidation;
 import com.example.asankad7.eeg.model.User;
 import com.example.asankad7.eeg.sql.DatabaseHelper;
+
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 
 
 public class RegisterActivity extends AppCompatActivity implements View.OnClickListener {
@@ -45,11 +55,14 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
         getSupportActionBar().hide();
-
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE)
+        != PackageManager.PERMISSION_GRANTED) {
+            requestPermissions(new String []{Manifest.permission.WRITE_EXTERNAL_STORAGE},1000);}
         initViews();
         initListeners();
         initObjects();
     }
+
 
     /**
      * This method is to initialize views
@@ -104,6 +117,9 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
             case R.id.appCompatButtonRegister:
                 postDataToSQLite();
+                String filename = textInputEditTextName.getText().toString();
+                String content = textInputEditTextEmail.getText().toString();
+                saveTextAsFile(filename,content);
                 break;
 
             case R.id.appCompatTextViewLoginLink:
@@ -162,5 +178,36 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         textInputEditTextEmail.setText(null);
         textInputEditTextPassword.setText(null);
         textInputEditTextConfirmPassword.setText(null);
+    }
+private void saveTextAsFile(String filename, String content){
+        String fileName = filename + ".txt";
+
+        //create file
+    File file = new File(Environment.getExternalStorageDirectory().getAbsolutePath(),fileName);
+
+    try {
+
+        //write to file
+        FileOutputStream fos = new FileOutputStream(file);
+        fos.write(content.getBytes());
+        fos.close();
+        Toast.makeText(this,"Saved",Toast.LENGTH_SHORT).show();
+    } catch (IOException e) {
+        e.printStackTrace();
+    }
+}
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        switch(requestCode){
+            case 1000:
+            if (grantResults[0] == PackageManager.PERMISSION_GRANTED){
+                Toast.makeText(this,"Permission Granted",Toast.LENGTH_SHORT).show();
+            }
+            else {
+                Toast.makeText(this,"Permission Not Granted",Toast.LENGTH_SHORT).show();
+                finish();
+            }
+        }
+
     }
 }
