@@ -7,21 +7,17 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Toast;
 
 import at.markushi.ui.CircleButton;
 public class MainActivity extends AppCompatActivity {
 
-    private Toolbar toolbar;
+   Toolbar toolbar;
     CircleButton bStartone;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        toolbar = (Toolbar)findViewById(R.id.mytoolbar);
-        setSupportActionBar(toolbar);
 
         bStartone = (CircleButton) findViewById(R.id.bStartone);
         bStartone.setOnClickListener(new View.OnClickListener() {
@@ -31,10 +27,17 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
+        Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
+        setSupportActionBar(myToolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
     }
 
+    @Override
+    public boolean onSupportNavigateUp() {
+        finish();
+        return true;
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -51,14 +54,18 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_favorite) {
-            Toast.makeText(MainActivity.this, "Action clicked", Toast.LENGTH_LONG).show();
+        if (id == R.id.about) {
+          //  Toast.makeText(MainActivity.this, "Action clicked", Toast.LENGTH_LONG).show();
+            setContentView(R.layout.activity_about);
+            return true;
+        }else if (id == R.id.logout) {
+          //  Toast.makeText(MainActivity.this, "Action clicked", Toast.LENGTH_LONG).show();
+           finish();
             return true;
         }
 
         return super.onOptionsItemSelected(item);
     }
-
 
 
 }

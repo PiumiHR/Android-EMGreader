@@ -3,37 +3,30 @@
     android:layout_width="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
-<LinearLayout
-    android:layout_height="55dp"
-    android:layout_width="match_parent"
-    android:id="@+id/relativeone"
-    tools:context=".MainActivity">
-
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/mytoolbar"
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        style="@style/HeaderBar"
-
-        />
-</LinearLayout>
-
-<RelativeLayout
-android:layout_width="match_parent"
-android:layout_height="match_parent"
-    android:gravity="center"
-android:layout_below="@+id/relativeone"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.asankad7.eeg.MainActivity"
     android:background="@color/colorBackground"
- >
+    >
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_alignParentTop="true"
+   android:id="@+id/relativetwo"
+    tools:context= "com.example.asankad7.eeg.MainActivity" >
+    <include android:id="@+id/my_toolbar"
+    layout="@layout/toolbar"/>
+</RelativeLayout>
+
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Get Start!"
         android:gravity="center"
         android:textSize="50dp"
+        android:layout_marginTop="100dp"
         android:id="@id/tvstart"
+        android:layout_below="@+id/relativetwo"
         />
 
 
@@ -47,10 +40,6 @@ android:layout_below="@+id/relativeone"
         android:src="@drawable/start"
         android:layout_below="@+id/tvstart"
         android:layout_marginTop="30dp"
-
-
-
 />
 
-</RelativeLayout>
 </RelativeLayout>
