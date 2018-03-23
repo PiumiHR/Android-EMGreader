@@ -10,7 +10,7 @@ import android.view.View;
 
 import at.markushi.ui.CircleButton;
 public class MainActivity extends AppCompatActivity {
-
+Toolbar toolbarabout;
    Toolbar toolbar;
     CircleButton bStartone;
 
@@ -28,7 +28,9 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
+        toolbarabout = (Toolbar)findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);
+        setSupportActionBar(toolbarabout);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
     }
@@ -57,10 +59,19 @@ public class MainActivity extends AppCompatActivity {
         if (id == R.id.about) {
           //  Toast.makeText(MainActivity.this, "Action clicked", Toast.LENGTH_LONG).show();
             setContentView(R.layout.activity_about);
+            setSupportActionBar(toolbarabout);
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            toolbarabout.setNavigationOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    startActivity(new Intent(getApplicationContext(),MainActivity.class));
+                }
+            });
             return true;
         }else if (id == R.id.logout) {
           //  Toast.makeText(MainActivity.this, "Action clicked", Toast.LENGTH_LONG).show();
            finish();
+            System.exit(0);
             return true;
         }
 

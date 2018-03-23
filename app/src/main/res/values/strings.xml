@@ -1,6 +1,7 @@
 <resources>
-    <string name="app_name">EMG READER</string>
+    <string name="app_name">EMG Reader</string>
     <string name="hello_world">Hello world!</string>
+    <string name="text_about">About EMG Reader</string>
     <string name="menu_settings">Settings</string>
     <string name="title_activity_main">MainActivity</string>
     <string name="text_accounts">All Accounts</string>
@@ -23,6 +24,6 @@
     <string name="action_settings">Settings</string>
     <string name="text_hello">Hello,</string>
     <string name="text_title">Android Tutorials Hub</string>
-<string name="about" >EMG signals work with EMG machines and is the process of organism functions that are control through techniques used through monitoring devic.This devices display data, which relates to processes of bodily functions. EMG reader allows experts to monitor EMG feedback by coonecting to the EMG device.</string>
+<string name="about" >EMG signals work with EMG machines and is the process of organism functions that are control through techniques used through monitoring device.This devices display data, which relates to processes of bodily functions. EMG reader allows experts to monitor EMG feedback by coonecting to the EMG device.</string>
 <string name="version">v1.0</string>
 </resources>

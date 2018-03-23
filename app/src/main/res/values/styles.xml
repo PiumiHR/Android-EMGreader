@@ -23,6 +23,7 @@
         <item name="android:textColorPrimaryInverse">@color/colorAccent</item>
         <item name="android:textColorSecondaryInverse">@color/secondcirclecolor</item>
         <item name="android:colorBackground">@color/colorAccent</item>
+
     </style>
 
     <style name="HeaderBar">
@@ -30,4 +31,9 @@
     </style>
 
     <style name="ActionBarPopupThemeOverlay">#000000</style>
+
+    <style name="HomeUpButton">
+        <item name="android:displayOptions">showHome|showTitle</item>
+        <item name="displayOptions">showHome|showTitle</item>
+    </style>
 </resources>
